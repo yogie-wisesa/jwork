@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Invoice
 comment1.params=
-comment1.target=void\ invoice()
+comment1.target=void\ Invoice()
 comment10.params=totalFee
-comment10.target=void\ setTotalFee(java.lang.String)
+comment10.target=void\ setTotalFee(int)
 comment2.params=
 comment2.target=int\ getId()
 comment3.params=

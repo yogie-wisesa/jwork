@@ -1,36 +1,36 @@
 public class Recruiter {
     int id;
     String name, email, phoneNumber;
-    public static void Recruiter(){
+    public void Recruiter(){
 
     }
 
-    public static int getId (){
+    public int getId (){
         return 0;
     }
     
-    public static String getName (){
+    public String getName (){
         return "oop";
     }
     
-    public static String getEmail (){
+    public String getEmail (){
         return "oop";
     }
     
-    public static String getPhoneNumber (){
+    public String getPhoneNumber (){
         return "oop";
     }
 
-    public static void setId(int id){
+    public void setId(int id){
     }
       
-    public static void setEmail(String email){
+    public void setEmail(String email){
     } 
 
-    public static void setName(String name){
+    public void setName(String name){
     }
 
-    public static void setPhoneNumber(String phoneNumber){
+    public void setPhoneNumber(String phoneNumber){
     }
 
 }
