@@ -2,7 +2,7 @@
 /**
  * Write a description of class JWork here.
  *
- * @author (your name)
+ * @author (Yogie Wisesa)
  * @version (a version number or a date)
  */
 public class JWork

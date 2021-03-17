@@ -1,7 +1,7 @@
 
 public class Invoice {
-    int id, idJob, totalFee;
-    String date;
+    public int id, idJob, totalFee;
+    public String date;
     public void Invoice (){
 
     }

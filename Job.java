@@ -1,6 +1,6 @@
 public class Job {
-    int id, fee;
-    String name, category;
+    public int id, fee;
+    public String name, category;
     public void Job(){
 
     }

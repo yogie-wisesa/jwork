@@ -1,7 +1,7 @@
 
 public class Jobseeker {
-    int id;
-    String name, email, password, joinDate;
+    public int id;
+    public String name, email, password, joinDate;
     public void Jobseeker(){
 
     }

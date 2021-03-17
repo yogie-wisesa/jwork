@@ -1,6 +1,6 @@
 public class Recruiter {
-    int id;
-    String name, email, phoneNumber;
+    public int id;
+    public String name, email, phoneNumber;
     public void Recruiter(){
 
     }
