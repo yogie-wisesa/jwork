@@ -22,7 +22,7 @@ public class Invoice {
      * @param totalFee gaji total
      * @param jobseeker identitas dari class jobseeker
      */
-    public void Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker){
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker){
         this.id = id;
         this.date = date;
         this.totalFee = totalFee;

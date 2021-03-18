@@ -21,7 +21,7 @@ public class Recruiter {
      * @param phoneNumber nomor telepon perekrut
      * @param location lokasi perekrut dari class location
      */
-    public void Recruiter(int id, String name, String email, String phoneNumber, Location location){
+    public Recruiter(int id, String name, String email, String phoneNumber, Location location){
         this.id = id;
         this.email = email;
         this.name = name;

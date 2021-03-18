@@ -21,7 +21,7 @@ public class Job {
      * @param fee integer gaji
      * @param category kategori pekerjaan
      */
-    public void Job(int id, String name, Recruiter recruiter, int fee, String category){
+    public Job(int id, String name, Recruiter recruiter, int fee, String category){
         this.id = id;
         this.name = name;
         this.recruiter = recruiter;

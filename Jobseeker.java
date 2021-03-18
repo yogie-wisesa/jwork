@@ -22,7 +22,7 @@ public class Jobseeker {
      * @param password akun pencari kerja
      * @param joinDate tanggal bergabung ke platform
      */
-    public void Jobseeker(int id, String name, String email, String password, String joinDate){
+    public Jobseeker(int id, String name, String email, String password, String joinDate){
         this.id = id;
         this.name = name;
         this.email = email;
