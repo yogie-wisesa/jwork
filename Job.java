@@ -112,6 +112,6 @@ public class Job {
      * method printData
      */
     public void printData(){
-
+        System.out.println("Pekerjaan: " + name);
     }
 }

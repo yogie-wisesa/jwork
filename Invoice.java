@@ -113,7 +113,7 @@ public class Invoice {
      * method printData
      */
     public void printData(){
-
+        System.out.println("Harga: " + totalFee);
     }
 }
 

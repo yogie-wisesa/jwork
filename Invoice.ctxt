@@ -2,7 +2,7 @@
 comment0.target=Invoice
 comment0.text=\r\n\ \r\n\r\n\ @author\ (Yogie\ Wisesa)\r\n\ @version\ (Modul2-18.03.2021)\r\n
 comment1.params=id\ idJob\ date\ totalFee\ jobseeker
-comment1.target=void\ Invoice(int,\ int,\ java.lang.String,\ int,\ Jobseeker)
+comment1.target=Invoice(int,\ int,\ java.lang.String,\ int,\ Jobseeker)
 comment1.text=\r\n\ constructor\ invoice\r\n\ @param\ id\ dari\ pencari\ kerja\r\n\ @param\ idJob\ dari\ pekerjaan\r\n\ @param\ date\ tanggal\ \r\n\ @param\ totalFee\ gaji\ total\r\n\ @param\ jobseeker\ identitas\ dari\ class\ jobseeker\r\n
 comment10.params=totalFee
 comment10.target=void\ setTotalFee(int)
