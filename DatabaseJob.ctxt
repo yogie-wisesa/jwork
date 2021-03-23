@@ -14,6 +14,6 @@ comment4.params=
 comment4.target=Job\ getJob()
 comment4.text=\r\n\ getter\ detail\ pekerjaan\r\n\ @return\ null\r\n
 comment5.params=
-comment5.target=java.lang.String\ getListJob()
+comment5.target=java.lang.String[]\ getListJob()
 comment5.text=\r\n\ getter\ list\ pekerjaan\r\n\ @return\ null\r\n
 numComments=6

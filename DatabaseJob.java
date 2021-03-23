@@ -9,7 +9,7 @@ public class DatabaseJob {
     inisiasi 
     variabel
     */
-    String listJob; //inisiasi variabel string
+    public String[] listJob; //inisiasi variabel string
 
     /**
      * constructor dari databaseJob
@@ -50,7 +50,7 @@ public class DatabaseJob {
      * getter list pekerjaan
      * @return null
      */
-    public String getListJob(){
+    public String[] getListJob(){
         return null;
     }
 }

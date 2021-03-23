@@ -1,5 +1,5 @@
 public class DatabaseRecruiter {
-    public String listRecruiter;
+    public String[] listRecruiter;
     
     public DatabaseRecruiter(){
 
@@ -11,7 +11,7 @@ public class DatabaseRecruiter {
     }
 
 
-    public boolean removeRecruter(Recruiter recruiter){
+    public boolean removeRecruiter(Recruiter recruiter){
         return false;
     }
 
@@ -21,7 +21,7 @@ public class DatabaseRecruiter {
     }
 
 
-    public String getListRecruiter(){
+    public String[] getListRecruiter(){
         return listRecruiter;
     }
 }
