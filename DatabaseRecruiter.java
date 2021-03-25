@@ -1,12 +1,9 @@
 public class DatabaseRecruiter {
     public String[] listRecruiter;
     
-    public DatabaseRecruiter(){
+    
 
-    }
-
-
-    public boolean addRecruiter(Recruiter recruiter){
+    public static boolean addRecruiter(Recruiter recruiter){
         return false;
     }
 

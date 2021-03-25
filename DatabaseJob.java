@@ -4,26 +4,22 @@
  * @author (Yogie Wisesa)
  * @version (Modul2-18.03.2021)
  */
+
+
 public class DatabaseJob {
     /*
     inisiasi 
     variabel
     */
-    public String[] listJob; //inisiasi variabel string
-
-    /**
-     * constructor dari databaseJob
-     */
-    public DatabaseJob(){
-
-    }
-
+    public String[]  listJob; //inisiasi variabel string
+    
+  
     /**
      * method untuk menambahkan lowongan baru
      * @param job detail pekerjaan
      * @return boolean 
      */
-    public boolean addJob(Job job){
+    public static boolean addJob(Job job){
         return false;
     }
 
