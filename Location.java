@@ -9,7 +9,7 @@ public class Location {
     inisiasi
     variabel 
     */
-    public String province, city, description; //inisiasi variabel string
+    private String province, city, description; //inisiasi variabel string
    
     /**
      * constructor dari location

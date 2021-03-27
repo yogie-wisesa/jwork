@@ -9,10 +9,10 @@ public class Job {
     inisiasi
     variabel
     */
-    public int id, fee; //inisiasi variabel integer
-    public String name; //inisiasi variabel string
-    public Recruiter recruiter; //inisiasi variabel dari class recruiter
-    public JobCategory category;
+    private int id, fee; //inisiasi variabel integer
+    private String name; //inisiasi variabel string
+    private Recruiter recruiter; //inisiasi variabel dari class recruiter
+    private JobCategory category;
 
     /**
      * constructor job
@@ -116,8 +116,8 @@ public class Job {
         System.out.println("========== JOB ==========\n" +
                             "ID: " + id +
                             "\nName: " + name +
-                            "\nRecruiter: " + getRecruiter().name + 
-                            "\nCity: " + getRecruiter().getLocation().city +
+                            "\nRecruiter: " + getRecruiter().getName() + 
+                            "\nCity: " + getRecruiter().getLocation().getCity() +
                             "\nFee: " + fee + 
                             "\nCategory: " + getCategory().toString());
     }

@@ -11,8 +11,8 @@ public class Jobseeker {
     insisasi 
     variabel 
     */
-    public int id; //inisiasi variabel integer
-    public String name, email, password, joinDate; //inisiasi vairabel string
+    private int id; //inisiasi variabel integer
+    private String name, email, password, joinDate; //inisiasi vairabel string
     
     /**
      * constructor dari class jobseeker

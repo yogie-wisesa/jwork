@@ -9,9 +9,9 @@ public class Recruiter {
     inisiasi 
     variabel
     */
-    public int id; //inisiasi variabel integer
-    public String name, email, phoneNumber; //inisiasi variabel string
-    public Location location;// inisiasi variabel dari class lokasi
+    private int id; //inisiasi variabel integer
+    private String name, email, phoneNumber; //inisiasi variabel string
+    private Location location;// inisiasi variabel dari class lokasi
 
     /**
      * constructor recruiter

@@ -10,9 +10,9 @@ public class Invoice {
     inisiasi 
     variable
     */
-    public int id, idJob, totalFee; //inisiasi variable integer
-    public String date; //inisiasi variable string 
-    public Jobseeker jobseeker; //inisasi variable dari class jobseeker
+    private int id, idJob, totalFee; //inisiasi variable integer
+    private String date; //inisiasi variable string 
+    private Jobseeker jobseeker; //inisasi variable dari class jobseeker
 
     /**
      * constructor invoice
