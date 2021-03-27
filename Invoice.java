@@ -13,6 +13,8 @@ public class Invoice {
     private int id, idJob, totalFee; //inisiasi variable integer
     private String date; //inisiasi variable string 
     private Jobseeker jobseeker; //inisasi variable dari class jobseeker
+    private PaymentType paymentType;
+    private InvoiceStatus status;
 
     /**
      * constructor invoice
@@ -22,11 +24,14 @@ public class Invoice {
      * @param totalFee gaji total
      * @param jobseeker identitas dari class jobseeker
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker){
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status){
         this.id = id;
+        this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
 
     /**
@@ -69,6 +74,15 @@ public class Invoice {
         return jobseeker;
     }
 
+    
+    public PaymentType getPaymentType(){
+        return paymentType;
+    }
+
+
+    public InvoiceStatus getInvoiceStatus(){
+        return status;
+    }
     /**
      * setter id jobseeker
      * @param id
@@ -109,11 +123,26 @@ public class Invoice {
         this.jobseeker = jobseeker;
     }
 
+
+    public void setPaymentType(PaymentType paymentType){
+        this.paymentType = paymentType;
+    }
+
+
+    public void setInvoiceStatus(InvoiceStatus status){
+        this.status = status;
+    }
     /**
      * method printData
      */
     public void printData(){
-        System.out.println("Harga: " + totalFee);
+        System.out.println("============ Invoice ============\n" +
+                            "ID: " + getId() +
+                            "\nID Job: " + getIdJob() + 
+                            "\nDate: " + getDate() +
+                            "\nSeeker: " + jobseeker.getName() +
+                            "\nFee: " + getTotalFee() +
+                            "\nStatus: " + getInvoiceStatus() );
     }
 }
 
