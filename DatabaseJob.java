@@ -11,7 +11,7 @@ public class DatabaseJob {
     inisiasi 
     variabel
     */
-    public String[]  listJob; //inisiasi variabel string
+    private static String[] listJob; //inisiasi variabel string
     
   
     /**
@@ -28,7 +28,7 @@ public class DatabaseJob {
      * @param job detail pekerjaan 
      * @return boolean 
      */
-    public boolean removeJob(Job job){
+    public static boolean removeJob(Job job){
         return false;
 
     }
@@ -37,7 +37,7 @@ public class DatabaseJob {
      * getter detail pekerjaan
      * @return null
      */
-    public Job getJob(){
+    public static Job getJob(){
         return null;
 
     }
@@ -46,7 +46,7 @@ public class DatabaseJob {
      * getter list pekerjaan
      * @return null
      */
-    public String[] getListJob(){
-        return null;
+    public static String[] getListJob(){
+        return listJob;
     }
 }

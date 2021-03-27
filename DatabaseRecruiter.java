@@ -1,24 +1,47 @@
+/**
+ * 
+ *
+ * @author (Yogie Wisesa)
+ * @version (27.03.2021)
+ */
 public class DatabaseRecruiter {
-    public String[] listRecruiter;
+    /**
+     * 
+     */
+    private static String[] listRecruiter;
     
     
-
+    /**
+     * 
+     * @param recruiter
+     * @return
+     */
     public static boolean addRecruiter(Recruiter recruiter){
         return false;
     }
 
-
-    public boolean removeRecruiter(Recruiter recruiter){
+    /**
+     * 
+     * @param recruiter
+     * @return
+     */
+    public static boolean removeRecruiter(Recruiter recruiter){
         return false;
     }
 
-
-    public Recruiter getRecruiter(){
+    /**
+     * 
+     * @return
+     */
+    public static Recruiter getRecruiter(){
         return null;
     }
 
-
-    public String[] getListRecruiter(){
+    /**
+     * 
+     * @return
+     */
+    public static String[] getListRecruiter(){
         return listRecruiter;
     }
 }

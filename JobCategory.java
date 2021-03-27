@@ -1,3 +1,9 @@
+/**
+ * 
+ *
+ * @author (Yogie Wisesa)
+ * @version (27.03.2021)
+ */
 public enum JobCategory {
     
     WebDeveloper("Web Developer"),
@@ -10,11 +16,18 @@ public enum JobCategory {
 
     private String category;
 
+    /**
+     * 
+     * @param category
+     */
     JobCategory(String category)
     {
         this.category = category;
     }
 
+    /**
+     * 
+     */
     public String toString()
     {
         return category;
