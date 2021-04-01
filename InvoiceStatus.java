@@ -3,11 +3,11 @@ public enum InvoiceStatus {
     Finished("Finished"),
     Cancelled("Cancelled");
 
-    public String status;
+    public String invoiceStatus;
 
-    InvoiceStatus(String status)
+    InvoiceStatus(String invoiceStatus)
     {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
 
     /**
@@ -15,6 +15,6 @@ public enum InvoiceStatus {
      */
     public String toString()
     {
-        return status;
+        return invoiceStatus;
     }
 }

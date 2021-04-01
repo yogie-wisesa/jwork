@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InvoiceStatus
-comment1.params=status
+comment1.params=invoiceStatus
 comment1.target=InvoiceStatus(java.lang.String)
 comment2.params=
 comment2.target=java.lang.String\ toString()
