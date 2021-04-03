@@ -44,13 +44,13 @@ public class BankPayment extends Invoice {
     public void printData()
     {
         System.out.println("\n==========Invoice==========\n");
-        System.out.println("ID               = "+ super.getId());
+        System.out.println("ID                 = "+ super.getId());
         System.out.println("\nID Job           = "+ super.getJob().getName());
         System.out.println("\nDate             = "+ super.getDate());
         System.out.println("\nSeeker           = "+ super.getJobseeker().getName());
         System.out.println("\nFee              = "+ super.totalFee);
         
-        System.out.println("\nReferral Code    = "+ getAdminFee());
+        System.out.println("\nAdmin Fee        = "+ getAdminFee());
         
         
         System.out.println("\nStatus           = "+ super.getInvoiceStatus().toString());
