@@ -61,12 +61,11 @@ public class Bonus {
         this.active = active;
     }
 
-    public void printData(){
-        System.out.println("========== Bonus ==========\n" + 
-                            "ID = " + id + 
+    public String toString(){
+        return              "ID = " + id + 
                             "\nReferral Code = " + referralCode + 
                             "\nExtra Fee = " + extraFee + 
                             "\nMin Total Fee = " + minTotalFee +
-                            "\nActive = " + active);  
+                            "\nActive = " + active;  
     }
 }

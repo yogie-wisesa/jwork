@@ -112,13 +112,13 @@ public class Job {
     /**
      * method printData
      */
-    public void printData(){
-        System.out.println("========== JOB ==========\n" +
+    public String toString(){
+        return "========== JOB ==========\n" +
                             "ID: " + id +
                             "\nName: " + name +
                             "\nRecruiter: " + getRecruiter().getName() + 
                             "\nCity: " + getRecruiter().getLocation().getCity() +
                             "\nFee: " + fee + 
-                            "\nCategory: " + getCategory().toString());
+                            "\nCategory: " + getCategory().toString();
     }
 }

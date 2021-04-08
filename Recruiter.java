@@ -114,7 +114,10 @@ public class Recruiter {
      * method untuk mencetak nama rekruter
      * outputnya string nama dari rekruter
      */
-    public void printData(){
-        System.out.println("Recruiter name: "+ name);
+    public String toString(){
+        return  "ID = " + id +
+                "\nRecruiter name =  "+ name + 
+                "\nPhone Number = " + phoneNumber + 
+                "\nLocation = " + location;
     }
 }

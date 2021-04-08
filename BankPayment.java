@@ -40,7 +40,7 @@ public class BankPayment extends Invoice {
     }
 
 
-    @Override
+    
     public void printData()
     {
         System.out.println("\n==========Invoice==========\n");

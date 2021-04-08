@@ -75,11 +75,10 @@ public class Location {
      * method untuk mencetak nama provinsi dari lokasi
      * output berupa nama provinsi
      */
-    public void printData(){
-        System.out.println("====Location====\n" + 
-                            "Province: " + province +
+    public String toString(){
+        return              "Province: " + province +
                             "\nCity: " + city + 
-                            "\nDescription: " + description);
+                            "\nDescription: " + description;
     }
 
 }
