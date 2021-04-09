@@ -3,20 +3,20 @@ public class DatabaseBonus {
     
     private String[] listBonus;
 
-    public boolean addBonus(Bonus bonus){
+    public static boolean addBonus(Bonus bonus){
         
         return false;
     }
 
-    public boolean removeBonus(Bonus bonus){
+    public static boolean removeBonus(Bonus bonus){
         return false;
     }
 
-    public Bonus getBonus(){
+    public static Bonus getBonus(){
         return null;
     }
 
-    public String[] getListBonus(){
+    public static String[] getListBonus(){
         return null;
     }
 }

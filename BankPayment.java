@@ -24,7 +24,7 @@ public class BankPayment extends Invoice {
         return adminFee;
     }
 
-    public void setBonus(Bonus bonus){
+    public void setAdminFee(int adminFee){
         this.adminFee = adminFee;
 
     }

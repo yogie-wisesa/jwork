@@ -121,7 +121,7 @@ public class Jobseeker {
      * @param email string email
      */
     public void setEmail(String email){
-        String regex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+        String regex = "(?!.*([.])\\1)[^-.][a-zA-Z0-9.&*_~]+@[^-.][a-zA-Z0-9-.&*_~]+(?:\\.[a-zA-Z0-9-]+)*$";
         Pattern pt = Pattern.compile(regex);
         Matcher mt = pt.matcher(email);
         if (mt.matches()){
@@ -159,7 +159,7 @@ public class Jobseeker {
 
     public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+        this.joinDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
 
     /**
@@ -176,6 +176,9 @@ public class Jobseeker {
             Date date = joinDate.getTime();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
             strDate = dateFormat.format(date);
+        }
+        else{
+            strDate = "";
         }
         return  "ID = " + id + 
                 "\nNama = " + name + 
