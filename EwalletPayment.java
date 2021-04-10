@@ -1,23 +1,27 @@
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class EwalletPayment extends Invoice {
     
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
-        super(id, job, date, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+        super(id, job, jobseeker, invoiceStatus);
         this.bonus = null;
     }
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus){
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus){
 
-        super(id, job, date, jobseeker, invoiceStatus);
+        super(id, job, jobseeker, invoiceStatus);
         this.bonus = bonus;
 
     }
     
     public PaymentType getPaymentType(){
         return PAYMENT_TYPE;
-
     }
 
     public Bonus getBonus(){
@@ -41,21 +45,35 @@ public class EwalletPayment extends Invoice {
 
 
     
-    public void printData()
+    public String toString()
     {
-        System.out.println("\n==========Invoice==========\n");
-        System.out.println("ID               = "+ super.getId());
-        System.out.println("\nID Job           = "+ super.getJob().getName());
-        System.out.println("\nDate             = "+ super.getDate());
-        System.out.println("\nSeeker           = "+ super.getJobseeker().getName());
-        System.out.println("\nFee              = "+ super.totalFee);
-        
+        Calendar cal = new GregorianCalendar();
+        Date date = cal.getTime();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+            String strDate = dateFormat.format(date);
         if (bonus != null && bonus.getActive() && super.totalFee > bonus.getMinTotalFee() && bonus.getReferralCode() != null) {
-            System.out.println("\nReferral Code    = "+ bonus.getReferralCode());
+            return "==========Invoice==========\n" +
+        "ID               = " + super.getId()+
+        "\nID Job           = "+ super.getJob().getName()+
+        "\nDate             = "+ strDate+
+        "\nSeeker           = "+ super.getJobseeker().getName()+
+        "\nFee              = "+ super.totalFee+
+        "\nReferral Code    = "+ bonus.getReferralCode()+
+        "\nStatus           = "+ super.getInvoiceStatus().toString()+
+        "\nPayment Type     = "+ PAYMENT_TYPE.toString();
         }
+        else{
+            return "==========Invoice==========\n" +
+            "ID                 = " + super.getId()+
+            "\nID Job           = "+ super.getJob().getName()+
+            "\nDate             = "+ strDate+
+            "\nSeeker           = "+ super.getJobseeker().getName()+
+            "\nFee              = "+ super.totalFee+
+            "\nStatus           = "+ super.getInvoiceStatus().toString()+
+            "\nPayment Type     = "+ PAYMENT_TYPE.toString();
+        }
+
         
-        System.out.println("\nStatus           = "+ super.getInvoiceStatus().toString());
-        System.out.println("\nPayment Type     = "+ PAYMENT_TYPE.toString());
     }
 
 }

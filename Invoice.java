@@ -1,3 +1,6 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  * 
  *
@@ -11,7 +14,7 @@ public abstract class Invoice {
     variable
     */
     private int id; //inisiasi variable integer
-    private String date; //inisiasi variable string 
+    private Calendar date; //inisiasi variable string 
     private Jobseeker jobseeker; //inisasi variable dari class jobseeker
     private PaymentType paymentType;
     private InvoiceStatus invoiceStatus;
@@ -26,10 +29,10 @@ public abstract class Invoice {
      * @param totalFee gaji total
      * @param jobseeker identitas dari class jobseeker
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
         this.id = id;
         this.job = job;
-        this.date = date;
+        //this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
         this.paymentType = paymentType;
@@ -56,7 +59,7 @@ public abstract class Invoice {
      * getter tanggal 
      * @return date tanggal 
      */
-    public String getDate (){
+    public Calendar getDate (){
         return date;
     }
     
@@ -104,8 +107,12 @@ public abstract class Invoice {
      * setter tanggal
      * @param date
      */
-    public void setDate(String date){
+    public void setDate(Calendar date){
         this.date = date;
+    }
+
+    public void setDate(int year, int month, int dayOfMonth, int Calendar){
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
 
     /**
@@ -134,14 +141,14 @@ public abstract class Invoice {
     /**
      * method printData
      */
-    public abstract void printData(); /*{
-        System.out.println("============ Invoice ============\n" +
+    public abstract String toString(); /*{
+        return "============ Invoice ============\n" +
                             "ID: " + getId() +
                             "\nID Job: " + getJob() + 
                             "\nDate: " + getDate() +
                             "\nSeeker: " + jobseeker.getName() +
                             "\nFee: " + getTotalFee() +
-                            "\nStatus: " + getInvoiceStatus() );
+                            "\nStatus: " + getInvoiceStatus();
     }*/
 }
 
