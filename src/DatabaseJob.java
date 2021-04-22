@@ -82,10 +82,10 @@ public class DatabaseJob {
         for (int i = 0; i < JOB_DATABASE.size(); i++) {
             if (JOB_DATABASE.get(i).getCategory() == category) {
                 jobsByCategory.add(JOB_DATABASE.get(i));
-                return jobsByCategory;
+
             }
         }
-        return null;
+        return jobsByCategory;
     }
 
 }

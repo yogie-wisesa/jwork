@@ -21,8 +21,8 @@ public class JWork
 
             
             Jobseeker jobseeker1 = new Jobseeker(1, "John Smith", "john.smith@gmail.com", "Test1231321321", cal);
-            Jobseeker jobseeker2 = new Jobseeker(2, "Dean Smith", "dean.smith@gmail.com", "Tesasdfast123", 2020, 11, 2);
-            Jobseeker jobseeker3 = new Jobseeker(3, "Dean Smith", "dean.smith@gmail.com", "Teasdfasdfst123", 2020, 4, 20);
+            Jobseeker jobseeker2 = new Jobseeker(2, "john Smith", "john.smith@gmail.com", "Tesasdfast123", 2020, 11, 2);
+            Jobseeker jobseeker3 = new Jobseeker(3, "Geraldy Christanto", "geraldy.christanto@gmail.com", "Teasdfasdfst123", 2020, 4, 20);
             DatabaseJobseeker.addJobseeker(jobseeker1);
             DatabaseJobseeker.addJobseeker(jobseeker2);
             DatabaseJobseeker.addJobseeker(jobseeker3);
@@ -34,7 +34,7 @@ public class JWork
             }
 
             Job job1 = new Job(1, "Developer", DatabaseRecruiter.getRecruiterById(1), 30000, JobCategory.UI);
-            Job job2 = new Job(2, "Database", DatabaseRecruiter.getRecruiterById(1), 30000, JobCategory.UI);
+            Job job2 = new Job(2, "Database", DatabaseRecruiter.getRecruiterById(1), 30000, JobCategory.BackEnd);
             Job job3 = new Job(3, "Tester", DatabaseRecruiter.getRecruiterById(1), 30000, JobCategory.UI);
             DatabaseJob.addJob(job1);
             DatabaseJob.addJob(job2);

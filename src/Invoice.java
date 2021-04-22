@@ -35,7 +35,7 @@ public abstract class Invoice {
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
         this.paymentType = paymentType;
-        this.invoiceStatus = invoiceStatus;
+        this.invoiceStatus = invoiceStatus.Ongoing;
     }
 
     /**
