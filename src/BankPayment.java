@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -8,14 +9,14 @@ public class BankPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     private int adminFee;
 
-    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
-        super(id, job, jobseeker, invoiceStatus);
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+        super(id, jobs, jobseeker);
         this.adminFee = 0;
     }
 
-    public BankPayment(int id, Job job, Jobseeker jobseeker, int adminFee, InvoiceStatus invoiceStatus){
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, int adminFee){
 
-        super(id, job, jobseeker, invoiceStatus);
+        super(id, jobs, jobseeker);
         this.adminFee = adminFee;
 
     }
@@ -35,13 +36,13 @@ public class BankPayment extends Invoice {
     }
 
     public void setTotalFee(){
-        if (adminFee != 0){
-            super.totalFee = super.getJob().getFee() - adminFee;
+       /* if (adminFee != 0){
+            super.totalFee = super.getJobs().get() - adminFee;
         } 
         else 
         {
-            super.totalFee = super.getJob().getFee();
-        }
+            super.totalFee = super.getJobs().getFee();
+        }*/
     }
 
 
@@ -54,7 +55,7 @@ public class BankPayment extends Invoice {
         String strDate = dateFormat.format(date);
         return "==========Invoice==========\n"+
         "ID                 = "+ super.getId()+
-        "\nID Job           = "+ super.getJob().getName()+
+        "\nID Job           = "+ super.getJobs()+
         "\nDate             = "+ strDate+
         "\nSeeker           = "+ super.getJobseeker().getName()+
         "\nFee              = "+ super.totalFee+

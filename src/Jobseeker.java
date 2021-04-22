@@ -121,7 +121,7 @@ public class Jobseeker {
      * @param email string email
      */
     public void setEmail(String email){
-        String regex = "(?!.*([.])\\1)[^-.][a-zA-Z0-9.&*_~]+@[^-.][a-zA-Z0-9-.&*_~]+(?:\\.[a-zA-Z0-9-]+)*$";
+        String regex = "^(?!.*([.])\1)[^-.@][a-zA-Z0-9.&*_~]+(?!.*([@.])\1)[^-.][a-zA-Z0-9-.&*_~]+(?:\\.[a-zA-Z0-9-]+)*$";
         Pattern pt = Pattern.compile(regex);
         Matcher mt = pt.matcher(email);
         if (mt.matches()){
