@@ -19,7 +19,7 @@ public class EwalletPayment extends Invoice {
         super(id, jobs, jobseeker);
 
     }
-    
+
     public PaymentType getPaymentType(){
         return PAYMENT_TYPE;
     }
@@ -34,13 +34,13 @@ public class EwalletPayment extends Invoice {
     }
 
     public void setTotalFee(){
-        /*if (bonus != null && bonus.getActive() == true && getJobs().getFee() > bonus.getMinTotalFee()){
+        if (bonus != null && bonus.getActive() == true && jobs.getFee() > bonus.getMinTotalFee()){
             super.totalFee = getJobs().getFee() + bonus.getExtraFee();
         } 
         else 
         {
             super.totalFee = getJobs().getFee();
-        }*/
+        }
     }
 
 
