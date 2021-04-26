@@ -47,8 +47,8 @@ public class DatabaseInvoice {
 
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus){
         for (int i=0; i < INVOICE_DATABASE.size(); i++) {
-            if(INVOICE_DATABASE.get(i).getId() == id) {
-                INVOICE_DATABASE.remove(i).setInvoiceStatus(invoiceStatus);
+            if(INVOICE_DATABASE.get(i).getId() == id && Invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
+                Invoice.setInvoiceStatus(invoiceStatus);
                 return true;
             }
         }

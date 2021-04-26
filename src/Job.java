@@ -116,7 +116,7 @@ public class Job {
         return "========== JOB ==========\n" +
                             "ID: " + id +
                             "\nName: " + name +
-                            "\nRecruiter: " + getRecruiter().getName() + 
+                            //"\nRecruiter: " + getRecruiter().getName() +
                             "\nCity: " + getRecruiter().getLocation().getCity() +
                             "\nFee: " + fee + 
                             "\nCategory: " + getCategory().toString();

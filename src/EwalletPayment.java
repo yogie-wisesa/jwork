@@ -34,12 +34,21 @@ public class EwalletPayment extends Invoice {
     }
 
     public void setTotalFee(){
-        if (bonus != null && bonus.getActive() == true && jobs.getFee() > bonus.getMinTotalFee()){
-            super.totalFee = getJobs().getFee() + bonus.getExtraFee();
-        } 
-        else 
-        {
-            super.totalFee = getJobs().getFee();
+        int totalJobFee =0;
+        for(int i=0;i<getJobs().size();i++){
+            totalJobFee = totalJobFee + getJobs().get(i).getFee() ;
+        }
+
+        if( bonus != null){
+            if (bonus.getActive() == true && totalJobFee > bonus.getMinTotalFee()){
+                super.totalFee = (totalJobFee + bonus.getExtraFee() );
+            }
+            else{
+                super.totalFee = totalJobFee;
+            }
+        }
+        else{
+            super.totalFee = totalJobFee;
         }
     }
 
@@ -69,8 +78,8 @@ public class EwalletPayment extends Invoice {
             "\nDate             = "+ strDate+
             "\nSeeker           = "+ super.getJobseeker().getName()+
             "\nFee              = "+ super.totalFee+
-            "\nStatus           = "+ super.getInvoiceStatus().toString()+
-            "\nPayment Type     = "+ PAYMENT_TYPE.toString();
+            "\nStatus           = "+ super.getInvoiceStatus().toString();
+            //"\nPayment Type     = "+ PAYMENT_TYPE.toString();
         }
 
         

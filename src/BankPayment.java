@@ -36,13 +36,18 @@ public class BankPayment extends Invoice {
     }
 
     public void setTotalFee(){
-       /* if (adminFee != 0){
-            super.totalFee = super.getJobs().get() - adminFee;
-        } 
-        else 
+        int totalJobFee = 0;
+        for(int i=0; i< getJobs().size();i++){
+            totalJobFee = totalJobFee + getJobs().get(i).getFee();
+        }
+        if (getAdminFee() != 0)
         {
-            super.totalFee = super.getJobs().getFee();
-        }*/
+            this.totalFee = (totalJobFee + getAdminFee());
+        }
+        else
+        {
+            this.totalFee = totalJobFee;
+        }
     }
 
 

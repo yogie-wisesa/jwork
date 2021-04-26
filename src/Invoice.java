@@ -17,8 +17,7 @@ public abstract class Invoice {
     private int id; //inisiasi variable integer
     private Calendar date; //inisiasi variable string 
     private Jobseeker jobseeker; //inisasi variable dari class jobseeker
-    private PaymentType paymentType;
-    private InvoiceStatus invoiceStatus;
+    private static InvoiceStatus invoiceStatus;
     private ArrayList<Job> jobs;
     protected int totalFee;
 
@@ -34,7 +33,6 @@ public abstract class Invoice {
         this.jobs = jobs;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
         this.invoiceStatus = invoiceStatus.Ongoing;
     }
 
@@ -83,7 +81,7 @@ public abstract class Invoice {
     
 
 
-    public InvoiceStatus getInvoiceStatus(){
+    public static InvoiceStatus getInvoiceStatus(){
         return invoiceStatus;
     }
     /**
@@ -129,13 +127,8 @@ public abstract class Invoice {
     }
 
 
-    public void setPaymentType(PaymentType paymentType){
-        this.paymentType = paymentType;
-    }
-
-
-    public void setInvoiceStatus(InvoiceStatus invoiceStatus){
-        this.invoiceStatus = invoiceStatus;
+    public static void setInvoiceStatus(InvoiceStatus invoiceStatus){
+        Invoice.invoiceStatus = invoiceStatus;
     }
     /**
      * method printData
