@@ -35,7 +35,7 @@ public class DatabaseInvoice {
     public static boolean addInvoice(Invoice invoice){
 
         for (Invoice inv : INVOICE_DATABASE) {
-            if (invoice.getInvoiceStatus() == InvoiceStatus.Ongoing) {
+            if (invoice.getId() == inv.getId()) {
                 return false;
             }
         }
