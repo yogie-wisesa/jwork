@@ -42,25 +42,25 @@ public class JWork
 
             {
                     try {
-                            Jobseeker js = DatabaseJobseeker.getJobseekerById(9);
+                            Jobseeker js = DatabaseJobseeker.getJobseekerById(88);
                     } catch (JobSeekerNotFoundException e) {
                             System.out.println(e.getMessage());
                     }
 
                     try {
-                            Recruiter js = DatabaseRecruiter.getRecruiterById(9);
+                            Recruiter js = DatabaseRecruiter.getRecruiterById(88);
                     } catch (RecruiterNotFoundException e) {
                             System.out.println(e.getMessage());
                     }
 
                     try {
-                            Job js = DatabaseJob.getJobById(9);
+                            Job js = DatabaseJob.getJobById(88);
                     } catch (JobNotFoundException e) {
                             System.out.println(e.getMessage());
                     }
 
                     try {
-                            Bonus js = DatabaseBonus.getBonusById(9);
+                            Bonus js = DatabaseBonus.getBonusById(88);
                     } catch (BonusNotFoundException e) {
                             System.out.println(e.getMessage());
                     }
