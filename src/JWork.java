@@ -30,6 +30,8 @@ public class JWork
                     ArrayList<Bonus> list = new ArrayList<Bonus>();
                     list.add(new Bonus(1, "diskon", 10000, 30000, true));
                     list.add(new Bonus(2, "diskon", 60000, 90000, true));
+                    list.add(new Bonus(2, "diskonAsik", 10000, 30000, true));
+                    list.add(new Bonus(2, "diskon50", 60000, 90000, true));
                     for (Bonus b : list)
                     {
                             try {
