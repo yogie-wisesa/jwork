@@ -34,14 +34,16 @@ public class DatabaseJob {
      * @param
      * @return boolean
      */
-    public static boolean removeJob(int id) {
-        for (int i = 0; i < JOB_DATABASE.size(); i++) {
-            if (JOB_DATABASE.get(i).getId() == id) {
-                JOB_DATABASE.remove(i);
+    public static boolean removeJob(int id) throws JobNotFoundException{
+        for (Job job : JOB_DATABASE)
+        {
+            if (job.getId() == id)
+            {
+                JOB_DATABASE.remove(job);
                 return true;
             }
         }
-        return false;
+        throw new JobNotFoundException(id);
     }
 
     /**
@@ -58,13 +60,16 @@ public class DatabaseJob {
         return lastId;
     }
 
-    public static Job getJobById(int id) {
-        for (int i = 0; i < JOB_DATABASE.size(); i++) {
-            if (JOB_DATABASE.get(i).getId() == id) {
-                return JOB_DATABASE.get(i);
+    public static Job getJobById(int id) throws JobNotFoundException{
+        Job dummy = null;
+        for (Job job : JOB_DATABASE) {
+            if (job.getId() == id) {
+                dummy = job;
+            } else {
+                return dummy;
             }
         }
-        return null;
+        throw new JobNotFoundException(id);
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {

@@ -13,13 +13,16 @@ public class DatabaseBonus {
         return lastId;
     }
 
-    public static Bonus getBonusById(int id) {
-        for (int i = 0; i < BONUS_DATABASE.size(); i++) {
-            if (BONUS_DATABASE.get(i).getId() == id) {
-                return BONUS_DATABASE.get(i);
+    public static Bonus getBonusById(int id) throws BonusNotFoundException{
+        Bonus dummy = null;
+        for (Bonus bonus : BONUS_DATABASE) {
+            if (bonus.getId() == id) {
+                dummy = bonus;
+            } else {
+                return dummy;
             }
         }
-        return null;
+        throw new BonusNotFoundException(dummy);
     }
 
     public static Bonus getBonusByReferralCode(String referralCode) {
@@ -31,11 +34,13 @@ public class DatabaseBonus {
         return null;
     }
 
-    public static boolean addBonus(Bonus bonus) {
-        for (Bonus b : BONUS_DATABASE)
+    public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException{
+        for (Bonus cekbonus : BONUS_DATABASE)
         {
-            if (b.getId() == bonus.getId()) return false;
-            if (b.getReferralCode() == bonus.getReferralCode()) return false;
+            if (bonus.getReferralCode() == cekbonus.getReferralCode())
+            {
+                throw new ReferralCodeAlreadyExistsException(bonus);
+            }
         }
         BONUS_DATABASE.add(bonus);
         lastId = bonus.getId();
@@ -62,14 +67,16 @@ public class DatabaseBonus {
         return false;
     }
 
-    public static boolean removeBonus(int id) {
-        for (int i = 0; i < BONUS_DATABASE.size(); i++) {
-            if (BONUS_DATABASE.get(i).getId() == id) {
-                BONUS_DATABASE.remove(i);
+    public static boolean removeBonus(int id) throws BonusNotFoundException{
+        for (Bonus bonus : BONUS_DATABASE)
+        {
+            if (bonus.getId() == id)
+            {
+                BONUS_DATABASE.remove(bonus);
                 return true;
             }
         }
-        return false;
+        throw new BonusNotFoundException(getBonusById(id));
     }
 
 }

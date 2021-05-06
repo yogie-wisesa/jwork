@@ -1,8 +1,4 @@
-import javax.xml.crypto.Data;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Write a description of class JWork here.
@@ -13,50 +9,96 @@ import java.util.GregorianCalendar;
 public class JWork
 {
     public static void main(String[] args){
+            {
+                    ArrayList<Jobseeker> list = new ArrayList<Jobseeker>();
+                    list.add(new Jobseeker(1, "John", "john@ui.ac.id", "Test12345"));
+                    list.add(new Jobseeker(2, "Geraldy", "geraldy@ui.ac.id", "Test12345"));
+                    list.add(new Jobseeker(3, "Alan", "alan@ui.ac.id", "Test12345"));
+                    list.add(new Jobseeker(4, "John", "john@ui.ac.id", "Test12345"));
+
+                    for (Jobseeker j : list)
+                    {
+                            try {
+                                    DatabaseJobseeker.addJobseeker(j);
+                            } catch (EmailAlreadyExistException e) {
+                                    System.out.println(e.getMessage());
+                            }
+                    }
+            }
 
             {
-                    DatabaseBonus.addBonus(new Bonus(1, "diskon", 100, 10000, false));
-                    DatabaseBonus.addBonus(new Bonus(2, "diskon", 100, 10000, true));
+                    ArrayList<Bonus> list = new ArrayList<Bonus>();
+                    list.add(new Bonus(1, "diskon", 10000, 30000, true));
+                    list.add(new Bonus(2, "diskon", 60000, 90000, true));
+                    for (Bonus b : list)
+                    {
+                            try {
+                                    DatabaseBonus.addBonus(b);
+                            } catch (ReferralCodeAlreadyExistsException e) {
+                                    System.out.println(e.getMessage());
+                            }
+                    }
+            }
 
-                    ArrayList<Bonus> list = DatabaseBonus.getBonusDatabase();
-                    for(Bonus b:list){
-                            System.out.println(b.toString());
+            {
+                    try {
+                            Jobseeker js = DatabaseJobseeker.getJobseekerById(9);
+                    } catch (JobSeekerNotFoundException e) {
+                            System.out.println(e.getMessage());
                     }
 
+                    try {
+                            Recruiter js = DatabaseRecruiter.getRecruiterById(9);
+                    } catch (RecruiterNotFoundException e) {
+                            System.out.println(e.getMessage());
+                    }
+
+                    try {
+                            Job js = DatabaseJob.getJobById(9);
+                    } catch (JobNotFoundException e) {
+                            System.out.println(e.getMessage());
+                    }
+
+                    try {
+                            Bonus js = DatabaseBonus.getBonusById(9);
+                    } catch (BonusNotFoundException e) {
+                            System.out.println(e.getMessage());
+                    }
             }
-
-            ArrayList<Job> listJob1 = new ArrayList<Job>();
-            ArrayList<Job> listJob2 = new ArrayList<Job>();
-            listJob1.add(new Job(1, "Developer", DatabaseRecruiter.getRecruiterById(1), 30000, JobCategory.UI));
-            listJob1.add(new Job(2, "Devops", DatabaseRecruiter.getRecruiterById(1), 9000, JobCategory.UI));
-
-            Calendar cal = new GregorianCalendar(2021, 4, 20);
-            Location location = new Location("DKI Jakarta", "Jakarta Utara", "Sunter");
-            {
-                    Recruiter recruiter = new Recruiter(1, "Yogie Wisesa", "yogie.wisesa@ui.ac.id", "025123456", location);
-                    DatabaseRecruiter.addRecruiter(recruiter);
-            }
-
-            
-            Jobseeker jobseeker1 = new Jobseeker(1, "John Smith", "john.smith@gmail.com", "Test1231321321", cal);
-            Jobseeker jobseeker2 = new Jobseeker(2, "john Smith", "john.smith@gmail.com", "Tesasdfast123", 2020, 11, 2);
-            Jobseeker jobseeker3 = new Jobseeker(3, "Geraldy Christanto", "geraldy.christanto@gmail.com", "Teasdfasdfst123", 2020, 4, 20);
-            DatabaseJobseeker.addJobseeker(jobseeker1);
-            DatabaseJobseeker.addJobseeker(jobseeker2);
-            DatabaseJobseeker.addJobseeker(jobseeker3);
 
             {
-                    ArrayList<Jobseeker> jstest = DatabaseJobseeker.getDatabaseJobseeker();
-                    for (Jobseeker js : jstest)
-                            System.out.println(js.toString());
+                    ArrayList<Bonus> listBonus = DatabaseBonus.getBonusDatabase();
+                    ArrayList<Jobseeker> listJS = DatabaseJobseeker.getDatabaseJobseeker();
+
+                    for (Bonus b : listBonus)
+                            System.out.println(b);
+
+                    for (Jobseeker js : listJS)
+                            System.out.println(js);
             }
 
+            {
+                    try {
 
-            DatabaseInvoice.addInvoice(new EwalletPayment(0, listJob1, DatabaseJobseeker.getJobseekerById(1), DatabaseBonus.getBonusById(1)));
-            DatabaseInvoice.addInvoice(new EwalletPayment(1, listJob2, DatabaseJobseeker.getJobseekerById(3), DatabaseBonus.getBonusById(1)));
-            ArrayList<Invoice> list = DatabaseInvoice.getInvoiceDatabase();
-            for (Invoice i:list){
-                    System.out.println(i.toString());
+                            Jobseeker js1 = DatabaseJobseeker.getJobseekerById(1);
+                            Jobseeker js2 = DatabaseJobseeker.getJobseekerById(2);
+                            Jobseeker js3 = DatabaseJobseeker.getJobseekerById(3);
+
+                            Location l = new Location("DKI Jakarta", "Jakarta Utara", "Headquarter");
+                            Recruiter r = new Recruiter(1, "yogie wisesa", "yogie.wisesa@ui.ac.id", "01234567889", l);
+                            DatabaseJob.addJob(new Job(1, "Facebook UI Designer", r, 120000, JobCategory.UI));
+
+                            DatabaseInvoice.addInvoice(new BankPayment(1, DatabaseJob.getJobDatabase(), js1));
+                            DatabaseInvoice.addInvoice(new BankPayment(2, DatabaseJob.getJobDatabase(), js2));
+                            DatabaseInvoice.addInvoice(new BankPayment(3, DatabaseJob.getJobDatabase(), js3));
+
+                    } catch (JobSeekerNotFoundException e) {
+                            System.out.print(e.getMessage());
+                            return;
+                    }
+
+                    Thread myThread = new Thread(new FeeCalculator());
+                    myThread.start();
             }
 
             /*Job job1 = new Job(1, "Developer", DatabaseRecruiter.getRecruiterById(1), 30000, JobCategory.UI);
