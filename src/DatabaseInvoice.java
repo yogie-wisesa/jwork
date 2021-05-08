@@ -14,13 +14,16 @@ public class DatabaseInvoice {
         return lastId;
     }
 
-    public static Invoice getInvoicebyId(int id){
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if (INVOICE_DATABASE.get(i).getId() == id) {
-                return INVOICE_DATABASE.get(i);
+    public static Invoice getInvoicebyId(int id) throws InvoiceNotFoundException{
+        Invoice dummy = null;
+        for (Invoice invoice : INVOICE_DATABASE) {
+            if (invoice.getId() == id) {
+                dummy = invoice;
+            } else {
+                return dummy;
             }
         }
-        return null;
+        throw new InvoiceNotFoundException(id);
     }
 
     public static ArrayList<Invoice> getInvoicebyJobseeker(int id){
@@ -55,13 +58,15 @@ public class DatabaseInvoice {
         return false;
     }
 
-    public static boolean removeInvoice(int id){
-        for (int i=0; i < INVOICE_DATABASE.size(); i++) {
-            if(INVOICE_DATABASE.get(i).getId() == id) {
-                INVOICE_DATABASE.remove(i);
+    public static boolean removeInvoice(int id) throws InvoiceNotFoundException{
+        for (Invoice invoice : INVOICE_DATABASE)
+        {
+            if (invoice.getId() == id)
+            {
+                INVOICE_DATABASE.remove(invoice);
                 return true;
             }
         }
-        return false;
+        throw new InvoiceNotFoundException(id);
     }
 }

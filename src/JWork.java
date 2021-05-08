@@ -90,14 +90,23 @@ public class JWork
                             Recruiter r = new Recruiter(1, "yogie wisesa", "yogie.wisesa@ui.ac.id", "01234567889", l);
                             DatabaseJob.addJob(new Job(1, "UI/UX", r, 690000, JobCategory.UI));
 
+
                             DatabaseInvoice.addInvoice(new BankPayment(1, DatabaseJob.getJobDatabase(), js1));
                             DatabaseInvoice.addInvoice(new BankPayment(2, DatabaseJob.getJobDatabase(), js2));
                             DatabaseInvoice.addInvoice(new BankPayment(3, DatabaseJob.getJobDatabase(), js3));
-
-                    } catch (JobSeekerNotFoundException e) {
+                            Invoice.setInvoiceStatus(InvoiceStatus.Finished);
+                    } catch (JobSeekerNotFoundException e){
                             System.out.print(e.getMessage());
                             return;
                     }
+
+                    try {
+                            Invoice in = DatabaseInvoice.getInvoicebyId(88);
+                    } catch (InvoiceNotFoundException e) {
+                            System.out.println(e.getMessage());
+                    }
+
+
 
                     Thread myThread = new Thread(new FeeCalculator());
                     myThread.start();
