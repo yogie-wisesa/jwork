@@ -57,7 +57,7 @@ public class DatabaseJob {
 
     }
 
-    public int getLastId() {
+    public static int getLastId() {
         return lastId;
     }
 

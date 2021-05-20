@@ -51,7 +51,7 @@ public class DatabaseRecruiter {
         return RECRUITER_DATABASE;
     }
 
-    public int getLastId() {
+    public static int getLastId() {
         return lastId;
     }
 
