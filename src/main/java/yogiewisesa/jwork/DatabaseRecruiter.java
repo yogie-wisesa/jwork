@@ -64,8 +64,6 @@ public class DatabaseRecruiter {
         for (Recruiter recruiter : RECRUITER_DATABASE) {
             if (recruiter.getId() == id) {
                 dummy = recruiter;
-            } else {
-                return dummy;
             }
         }
         throw new RecruiterNotFoundException(id);

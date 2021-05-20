@@ -22,7 +22,8 @@ public class RecruiterController {
         try {
             recruiter = DatabaseRecruiter.getRecruiterById(id);
         }catch (RecruiterNotFoundException e){
-            throw e;
+            e.getMessage();
+            return null;
         }
         return recruiter;
     }
