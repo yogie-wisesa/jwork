@@ -30,19 +30,12 @@ public class BonusController {
                           @RequestParam(value = "active") boolean active)
             throws ReferralCodeAlreadyExistsException
         {
-            Bonus bonus = null;
-            bonus = DatabaseBonus.getBonusByReferralCode(referralCode);
-            if (bonus.getReferralCode() == referralCode){
-                throw new ReferralCodeAlreadyExistsException(bonus);
-            }
-            Bonus bonus1 = new Bonus(DatabaseBonus.getLastId()+1, referralCode, extraFee, minTotalFee, active);
-            boolean success = DatabaseBonus.addBonus(bonus1);
-
-            if (success)
-            {
-                return bonus1;
-            } else
-            {
+            Bonus bonus = new Bonus(DatabaseBonus.getLastId()+1, referralCode, extraFee, minTotalFee, active);
+            try {
+                DatabaseBonus.addBonus(bonus);
+                return bonus;
+            } catch (ReferralCodeAlreadyExistsException e) {
+                e.getMessage();
                 return null;
             }
         }

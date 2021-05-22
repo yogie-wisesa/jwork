@@ -36,11 +36,11 @@ public class DatabaseInvoice {
         return invByJobseeker;
     }
 
-    public static boolean addInvoice(Invoice invoice){
+    public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException{
 
         for (Invoice inv : INVOICE_DATABASE) {
-            if (invoice.getId() == inv.getId()) {
-                return false;
+            if (invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
+                throw new OngoingInvoiceAlreadyExistsException(invoice);
             }
         }
 
