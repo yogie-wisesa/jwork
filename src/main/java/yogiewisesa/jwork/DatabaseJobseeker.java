@@ -70,7 +70,7 @@ public class DatabaseJobseeker {
     public static Jobseeker jobseekerLogin(String email, String password){
         Jobseeker dummy = null;
         for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
-            if (jobseeker.getEmail() == email && jobseeker.getPassword() == password) {
+            if (jobseeker.getEmail().equals(email) && jobseeker.getPassword().equals(password)) {
                 dummy = jobseeker;
             }
         }

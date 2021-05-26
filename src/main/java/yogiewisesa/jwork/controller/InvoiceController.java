@@ -28,7 +28,7 @@ public class InvoiceController {
         return invoice;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{jobseekerId}", method = RequestMethod.GET)
     public ArrayList<Invoice> getInvoiceByJobseekerId(@PathVariable int jobseekerId){
         ArrayList<Invoice> invoice = null;
 //        try {
