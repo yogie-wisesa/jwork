@@ -28,7 +28,7 @@ public class InvoiceController {
         return invoice;
     }
 
-    @RequestMapping(value = "/{jobseekerId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/jobseeker/{jobseekerId}", method = RequestMethod.GET)
     public ArrayList<Invoice> getInvoiceByJobseekerId(@PathVariable int jobseekerId){
         ArrayList<Invoice> invoice = null;
 //        try {
@@ -71,16 +71,17 @@ public class InvoiceController {
     {
         try{
             ArrayList<Job> jobs = new ArrayList<Job>();
-            for (Integer id : jobIdList){
+            for (int id : jobIdList){
                 Job job = DatabaseJob.getJobById(id);
                 jobs.add(job);
             }
-            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
-            BankPayment bp = new BankPayment(DatabaseInvoice.getLastId() + 1, jobs, jobseeker, adminFee);
+//            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
+            BankPayment bp = new BankPayment(DatabaseInvoice.getLastId()+1, jobs,
+                    DatabaseJobseekerPostgre.getJobseeker(jobseekerId), adminFee);
             DatabaseInvoice.addInvoice(bp);
             return bp;
-        } catch (JobSeekerNotFoundException e){
-            System.out.println(e.getMessage());
+//        } catch (JobSeekerNotFoundException e){
+//            System.out.println(e.getMessage());
         } catch (JobNotFoundException e){
             System.out.println(e.getMessage());
         } catch (OngoingInvoiceAlreadyExistsException e){
@@ -90,9 +91,9 @@ public class InvoiceController {
     }
 
     @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
-    public Invoice addBankPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
+    public Invoice addEwalletPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value = "jobseekerId") int jobseekerId,
-                                  @RequestParam(value = "referralCode") Bonus referralCode)
+                                  @RequestParam(value = "referralCode") String referralCode)
     {
         try{
             ArrayList<Job> jobs = new ArrayList<Job>();
@@ -100,12 +101,13 @@ public class InvoiceController {
                 Job job = DatabaseJob.getJobById(id);
                 jobs.add(job);
             }
-            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
-            EwalletPayment ep = new EwalletPayment(DatabaseInvoice.getLastId() + 1, jobs, jobseeker, referralCode);
+//            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
+            EwalletPayment ep = new EwalletPayment(DatabaseInvoice.getLastId()+1, jobs,
+                    DatabaseJobseekerPostgre.getJobseeker(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));
             DatabaseInvoice.addInvoice(ep);
             return ep;
-        } catch (JobSeekerNotFoundException e){
-            System.out.println(e.getMessage());
+//        } catch (JobSeekerNotFoundException e){
+//            System.out.println(e.getMessage());
         } catch (JobNotFoundException e){
             System.out.println(e.getMessage());
         } catch (OngoingInvoiceAlreadyExistsException e){
