@@ -6,6 +6,10 @@ import java.util.ArrayList;
  *
  * @author (Yogie Wisesa)
  * @version (27.03.2021)
+ * 
+ * class database jobseeker
+ * untuk menyimpan jobseeker pada arraylist
+ * sudah digantikan menggunakan class DatabaseJobseekerPostgre
  */
 public class DatabaseJobseeker {
 
@@ -13,8 +17,9 @@ public class DatabaseJobseeker {
     private static int lastId;
 
     /**
+     * method untuk menambah jobseeker baru
      * @param jobseeker
-     * @return
+     * @return true jika berhasil ditambah
      */
     public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistException{
         for (Jobseeker orang : JOBSEEKER_DATABASE) {
@@ -28,8 +33,9 @@ public class DatabaseJobseeker {
     }
 
     /**
-     * @param
-     * @return
+     * method untuk menghapus jobseeker
+     * @param id untuk mencari
+     * @return true jika berhasil dihapus
      */
     public static boolean removeJobseeker(int id) throws JobSeekerNotFoundException {
         for (Jobseeker jobseeker : JOBSEEKER_DATABASE)
@@ -44,29 +50,45 @@ public class DatabaseJobseeker {
     }
 
     /**
-     * @return
+     * method getter database jobseeker
+     * @return seluruh database jobseeker
      */
     public static ArrayList<Jobseeker> getDatabaseJobseeker() {
         return JOBSEEKER_DATABASE;
 
     }
 
+    /**
+     * method getter id jobseeker terakhir
+     * @return id jobseeker terakhir
+     */
     public static int getLastId() {
         return lastId;
     }
 
+    /**
+     * method getter jobseeker menggunakanid
+     * @param id
+     * @return jobseeker yang dicari
+     * @throws JobSeekerNotFoundException
+     */
     public static Jobseeker getJobseekerById(int id) throws JobSeekerNotFoundException {
         Jobseeker dummy = null;
         for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
             if (jobseeker.getId() == id) {
                 dummy = jobseeker;
-            } else {
                 return dummy;
             }
         }
         throw new JobSeekerNotFoundException(id);
     }
 
+    /**
+     * method untuk login jobseeker
+     * @param email
+     * @param password
+     * @return jobseeker yang baru login
+     */
     public static Jobseeker jobseekerLogin(String email, String password){
         Jobseeker dummy = null;
         for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {

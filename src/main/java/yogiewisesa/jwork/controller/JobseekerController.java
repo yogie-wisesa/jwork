@@ -1,3 +1,9 @@
+/**
+ * @author Yogie Wisesa
+ * @version 24/6/21
+ * 
+ * class jobseeker controller
+ */
 package yogiewisesa.jwork.controller;
 
 import yogiewisesa.jwork.*;
@@ -9,11 +15,20 @@ import java.util.ArrayList;
 @RestController
 public class JobseekerController {
 
+    /**
+     * method getter seluruh jobseeker
+     * @return seluruh database jobseeker
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Jobseeker> getDatabaseCustomer(){
+    public ArrayList<Jobseeker> getDatabaseJobseeker(){
         return DatabaseJobseekerPostgre.getDatabaseJobseeker();
     }
 
+    /**
+     * method getter jobseeker menggunakan id
+     * @param id
+     * @return jobseeker dengan id tersebut
+     */
     @RequestMapping("/{id}")
     public Jobseeker getJobseekerById(@PathVariable int id) {
         Jobseeker jobseeker = null;
@@ -25,6 +40,13 @@ public class JobseekerController {
 //        }
         return jobseeker;
     }
+
+    /**
+     * method untuk login akun jobseeker
+     * @param email 
+     * @param password
+     * @return jobseeker yang baru login
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Jobseeker loginJobseeker(@RequestParam(value="email") String email,
                                     @RequestParam(value="password") String password){
@@ -33,7 +55,13 @@ public class JobseekerController {
     }
 
 
-
+    /**
+     * method untuk registrasi jobseeker baru
+     * @param name
+     * @param email
+     * @param password
+     * @return jobseeker yang baru registrasi
+     */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public Jobseeker registerJobseeker( @RequestParam(value="name") String name,
                                         @RequestParam(value="email") String email,

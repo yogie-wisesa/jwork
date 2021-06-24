@@ -1,3 +1,9 @@
+/**
+ * @author Yogie Wisesa
+ * @version 24/6/21
+ * 
+ * class Recruiter controller
+ */
 package yogiewisesa.jwork.controller;
 
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +15,10 @@ import java.util.ArrayList;
 @RestController
 public class RecruiterController {
 
+    /**
+     * method getter semua recruiter
+     * @return seluruh recruiter
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Recruiter> getAllRecruiter(){
         ArrayList<Recruiter> recruiter = null;
@@ -16,6 +26,12 @@ public class RecruiterController {
         return recruiter;
     }
 
+    /**
+     * method getter recruiter menggunakan id
+     * @param id
+     * @return recruiter dengan id tersebut
+     * @throws RecruiterNotFoundException
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Recruiter getRecruiterById(@PathVariable int id) throws RecruiterNotFoundException{
         Recruiter recruiter = null;
@@ -28,6 +44,16 @@ public class RecruiterController {
         return recruiter;
     }
 
+    /**
+     * method untuk menambahkan recruiter baru
+     * @param name
+     * @param email
+     * @param phoneNumber
+     * @param province
+     * @param city
+     * @param description
+     * @return recruiter yang baru dibuat
+     */
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Recruiter addRecruiter(@RequestParam(value ="name") String name,
                                   @RequestParam(value ="email") String email,

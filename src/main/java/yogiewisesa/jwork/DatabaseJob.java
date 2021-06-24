@@ -66,9 +66,8 @@ public class DatabaseJob {
         for (Job job : JOB_DATABASE) {
             if (job.getId() == id) {
                 dummy = job;
-            } else {
-                return dummy;
-            }
+            return dummy; }
+
         }
         throw new JobNotFoundException(id);
     }

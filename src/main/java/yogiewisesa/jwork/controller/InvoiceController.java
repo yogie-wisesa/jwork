@@ -1,3 +1,9 @@
+/**
+ * @author Yogie Wisesa
+ * @version 24/6/21
+ * 
+ * class Invoice controller
+ */
 package yogiewisesa.jwork.controller;
 
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +15,10 @@ import java.util.ArrayList;
 @RestController
 public class InvoiceController {
 
+    /**
+     * method getter semua invoice yang ada
+     * @return invoice yang ada
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Invoice> getAllInvoice(){
         ArrayList<Invoice> invoice = null;
@@ -16,6 +26,11 @@ public class InvoiceController {
         return invoice;
     }
 
+    /**
+     * method getter invoice menggunakan id
+     * @param id
+     * @return invoice dengan id terkait
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Invoice getInvoiceById(@PathVariable int id){
         Invoice invoice = null;
@@ -28,6 +43,11 @@ public class InvoiceController {
         return invoice;
     }
 
+    /**
+     * method getter invoice menggunakan jobseekerId
+     * @param jobseekerId
+     * @return invoice dengan jobseeker id terkait
+     */
     @RequestMapping(value = "/jobseeker/{jobseekerId}", method = RequestMethod.GET)
     public ArrayList<Invoice> getInvoiceByJobseekerId(@PathVariable int jobseekerId){
         ArrayList<Invoice> invoice = null;
@@ -40,6 +60,12 @@ public class InvoiceController {
         return invoice;
     }
 
+    /**
+     * method pengganti status invoice
+     * @param id id dari invoice
+     * @param status status invoice selanjutnya antara finsihed atau cancelled
+     * @return invoice yang baru diganti
+     */
     @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
     public Invoice changeInvoiceStatus(@RequestParam(value="id") int id,
                                        @RequestParam(value="invoiceStatus") InvoiceStatus status){
@@ -53,6 +79,11 @@ public class InvoiceController {
         }
     }
 
+    /**
+     * method menghapus invoice dengan id
+     * @param id
+     * @return true jika berhasil dihapus
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public Boolean removeInvoice(@RequestParam(value = "id") int id){
         try{
@@ -64,6 +95,13 @@ public class InvoiceController {
         return true;
     }
 
+    /**
+     * method membuat invoice baru dengan metode pembayaran bank
+     * @param jobIdList job yang diapply
+     * @param jobseekerId yang melamar
+     * @param adminFee biaya admin
+     * @return invoice yang baru dibuat
+     */
     @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
     public Invoice addBankPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value = "jobseekerId") int jobseekerId,
@@ -93,6 +131,13 @@ public class InvoiceController {
         return null;
     }
 
+    /**
+     * method membuat invoice baru menggunakan ewallet
+     * @param jobIdList pekerjaan yang di apply
+     * @param jobseekerId pelamar
+     * @param referralCode kode bonus yang digunakan
+     * @return invoice yang baru dibuat
+     */
     @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
     public Invoice addEwalletPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value = "jobseekerId") int jobseekerId,

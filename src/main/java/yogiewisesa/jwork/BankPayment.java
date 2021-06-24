@@ -1,3 +1,9 @@
+/**
+ * @author Yogie Wisesa
+ * @version 24/6/21
+ * 
+ * class bank payment
+ */
 package yogiewisesa.jwork;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,11 +16,24 @@ public class BankPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     private int adminFee;
 
+    /**
+     * constructor bank payment tanpa admin fee
+     * @param id
+     * @param jobs
+     * @param jobseeker
+     */
     public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker){
         super(id, jobs, jobseeker);
         this.adminFee = 0;
     }
 
+    /**
+     * constructor bank payment dengan admin fee
+     * @param id
+     * @param jobs
+     * @param jobseeker
+     * @param adminFee
+     */
     public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, int adminFee){
 
         super(id, jobs, jobseeker);
@@ -22,20 +41,35 @@ public class BankPayment extends Invoice {
 
     }
     
+    /**
+     * method getter payment type
+     * @return PAYMENT_TYPE  
+     */
     public PaymentType getPaymentType(){
         return PAYMENT_TYPE;
 
     }
 
+    /**
+     * method getter admin fee
+     * @return admin fee
+     */
     public int getAdminFee(){
         return adminFee;
     }
 
+    /**
+     * method setter admin fee
+     * @param adminFee
+     */
     public void setAdminFee(int adminFee){
         this.adminFee = adminFee;
 
     }
 
+    /**
+     * method setter totalfee untuk menghitung total gaji
+     */
     public void setTotalFee(){
         this.totalFee = 0;
         for (Job j : getJobs())
@@ -47,7 +81,9 @@ public class BankPayment extends Invoice {
     }
 
 
-    
+    /**
+     * method toString untuk print hasil
+     */
     public String toString()
     {
         Calendar cal = new GregorianCalendar();
