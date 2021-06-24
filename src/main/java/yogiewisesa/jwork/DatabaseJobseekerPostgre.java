@@ -31,7 +31,7 @@ public class DatabaseJobseekerPostgre {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 id = rs.getInt("id");
-                name = rs.getString("name");
+                name = rs.getString("name").stripTrailing();
                 email = rs.getString("email");
                 password = rs.getString("password");
                 jobseeker = new Jobseeker(id, name, email, password);
@@ -122,17 +122,18 @@ public class DatabaseJobseekerPostgre {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 id = rs.getInt("id");
-                name = rs.getString("name");
+                name = rs.getString("name").stripTrailing();
                 email = rs.getString("email");
                 password = rs.getString("password");
             }
             stmt.close();
             c.close();
-            Jobseeker = new Jobseeker(id, name, email, password);
+            Jobseeker js = new Jobseeker(id, name, email, password);
+            return js;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Jobseeker;
+        return null;
     }
 
     /**
@@ -157,7 +158,7 @@ public class DatabaseJobseekerPostgre {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 id = rs.getInt("id");
-                name = rs.getString("name");
+                name = rs.getString("name").stripTrailing();
                 email = rs.getString("email");
                 password = rs.getString("password");
             }

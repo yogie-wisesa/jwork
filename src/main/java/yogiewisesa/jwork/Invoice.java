@@ -18,8 +18,8 @@ public abstract class Invoice {
     private int id; //inisiasi variable integer
     private Calendar date; //inisiasi variable string 
     private Jobseeker jobseeker; //inisasi variable dari class jobseeker
-    private static InvoiceStatus invoiceStatus;
-    private ArrayList<Job> jobs;
+    private InvoiceStatus invoiceStatus;
+    private ArrayList<Job> jobs = new ArrayList<Job>();
     protected int totalFee;
 
     /**
@@ -82,7 +82,7 @@ public abstract class Invoice {
     
 
 
-    public static InvoiceStatus getInvoiceStatus(){
+    public InvoiceStatus getInvoiceStatus(){
         return invoiceStatus;
     }
     /**
@@ -128,8 +128,8 @@ public abstract class Invoice {
     }
 
 
-    public static void setInvoiceStatus(InvoiceStatus invoiceStatus){
-        Invoice.invoiceStatus = invoiceStatus;
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus){
+        this.invoiceStatus = invoiceStatus;
     }
     /**
      * method printData

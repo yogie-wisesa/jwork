@@ -71,10 +71,13 @@ public class InvoiceController {
     {
         try{
             ArrayList<Job> jobs = new ArrayList<Job>();
-            for (int id : jobIdList){
-                Job job = DatabaseJob.getJobById(id);
-                jobs.add(job);
-            }
+            int jobId = jobIdList.get(0);
+            Job job = DatabaseJob.getJobById(jobId);
+            jobs.add(job);
+//            for (int id : jobIdList){
+//                Job job = DatabaseJob.getJobById(id);
+//                jobs.add(job);
+//            }
 //            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
             BankPayment bp = new BankPayment(DatabaseInvoice.getLastId()+1, jobs,
                     DatabaseJobseekerPostgre.getJobseeker(jobseekerId), adminFee);
@@ -97,10 +100,13 @@ public class InvoiceController {
     {
         try{
             ArrayList<Job> jobs = new ArrayList<Job>();
-            for (Integer id : jobIdList){
-                Job job = DatabaseJob.getJobById(id);
-                jobs.add(job);
-            }
+            int jobId = jobIdList.get(0);
+            Job job = DatabaseJob.getJobById(jobId);
+            jobs.add(job);
+//            for (Integer id : jobIdList){
+//                Job job = DatabaseJob.getJobById(id);
+//                jobs.add(job);
+//            }
 //            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
             EwalletPayment ep = new EwalletPayment(DatabaseInvoice.getLastId()+1, jobs,
                     DatabaseJobseekerPostgre.getJobseeker(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));

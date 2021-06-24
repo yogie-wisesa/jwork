@@ -20,7 +20,6 @@ public class DatabaseInvoice {
         for (Invoice invoice : INVOICE_DATABASE) {
             if (invoice.getId() == id) {
                 dummy = invoice;
-            } else {
                 return dummy;
             }
         }
@@ -38,21 +37,22 @@ public class DatabaseInvoice {
 
     public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException{
 
-        for (Invoice inv : INVOICE_DATABASE) {
-            if (invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
+        for (Invoice i : INVOICE_DATABASE)
+
+            if (i.getId() == invoice.getId()) {
                 throw new OngoingInvoiceAlreadyExistsException(invoice);
             }
-        }
-
+        invoice.setInvoiceStatus(InvoiceStatus.Ongoing);
+        invoice.setTotalFee();
         INVOICE_DATABASE.add(invoice);
         lastId = invoice.getId();
         return true;
     }
 
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus){
-        for (int i=0; i < INVOICE_DATABASE.size(); i++) {
-            if(INVOICE_DATABASE.get(i).getId() == id && Invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
-                Invoice.setInvoiceStatus(invoiceStatus);
+        for (Invoice inv : INVOICE_DATABASE) {
+            if(inv.getId() == id && inv.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
+                inv.setInvoiceStatus(invoiceStatus);
                 return true;
             }
         }

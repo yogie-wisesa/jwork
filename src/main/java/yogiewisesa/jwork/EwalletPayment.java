@@ -35,21 +35,12 @@ public class EwalletPayment extends Invoice {
     }
 
     public void setTotalFee(){
-        int totalJobFee =0;
-        for(int i=0;i<getJobs().size();i++){
-            totalJobFee = totalJobFee + getJobs().get(i).getFee() ;
-        }
-
-        if( bonus != null){
-            if (bonus.getActive() == true && totalJobFee > bonus.getMinTotalFee()){
-                super.totalFee = (totalJobFee + bonus.getExtraFee() );
-            }
-            else{
-                super.totalFee = totalJobFee;
-            }
-        }
-        else{
-            super.totalFee = totalJobFee;
+        super.totalFee = 0;
+        for(Job j : getJobs())
+            super.totalFee += j.getFee();
+        if (bonus != null && bonus.getActive() &&
+                getTotalFee() > bonus.getMinTotalFee()) {
+            super.totalFee += bonus.getExtraFee();
         }
     }
 

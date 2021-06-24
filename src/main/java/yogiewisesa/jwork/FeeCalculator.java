@@ -9,8 +9,6 @@ public class FeeCalculator implements Runnable{
             System.out.println("calculating invoice id: "+ i.getId());
             i.setTotalFee();
             System.out.println("finished calculating invoice id: "+ i.getId());
-
         }
-
     }
 }
