@@ -4,9 +4,14 @@ package yogiewisesa.jwork;
  *
  * @author (Yogie Wisesa)
  * @version (27.03.2021)
+ * 
+ * enum category job
  */
 public enum JobCategory {
     
+    /**
+     * inisiasi enum
+     */
     WebDeveloper("Web Developer"),
     FrondEnd("Front End"),
     BackEnd("Back End"),
@@ -18,7 +23,7 @@ public enum JobCategory {
     private String category;
 
     /**
-     * 
+     * constructor enum
      * @param category
      */
     JobCategory(String category)
@@ -27,7 +32,7 @@ public enum JobCategory {
     }
 
     /**
-     * 
+     * method untuk mencetak category
      */
     public String toString()
     {

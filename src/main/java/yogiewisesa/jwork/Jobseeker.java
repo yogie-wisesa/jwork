@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
  * class jobseeker
  * @author (Yogie Wisesa)
  * @version (Modul2-18.03.2021)
+ * 
+ * untuk menghandle pembuatan objek jobseeker
  */
 
 
@@ -171,6 +173,9 @@ public class Jobseeker {
         System.out.println("Jobseeker name: " + name);
     }
 
+    /**
+     * method untuk mencetak data jobseeker
+     */
     public String toString(){
         String strDate = "";
         if (joinDate != null){

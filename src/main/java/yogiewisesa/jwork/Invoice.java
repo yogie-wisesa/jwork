@@ -8,6 +8,9 @@ import java.util.GregorianCalendar;
  *
  * @author (Yogie Wisesa)
  * @version (Modul2-18.03.2021)
+ * 
+ * parent class invoice
+ * untuk menhandle pembuatan objek invoice
  */
 
 public abstract class Invoice {
@@ -26,15 +29,12 @@ public abstract class Invoice {
      * constructor invoice
      * @param id dari pencari kerja
      * @param jobs dari pekerjaan
-     * @param
      * @param jobseeker identitas dari class jobseeker
      */
     public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker){
         this.id = id;
         this.jobs = jobs;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus.Ongoing;
     }
 
     /**
@@ -77,11 +77,16 @@ public abstract class Invoice {
         return jobseeker;
     }
 
-    
+    /**
+     * method getter payment type dari invoice
+     * mengambil method getter dari subclass
+     */
     public abstract PaymentType getPaymentType();
     
-
-
+    /**
+     * method getter status invoice
+     * @return status invoice
+     */
     public InvoiceStatus getInvoiceStatus(){
         return invoiceStatus;
     }
@@ -109,13 +114,19 @@ public abstract class Invoice {
         this.date = date;
     }
 
+    /**
+     * method setter tanggal invoice
+     * @param year
+     * @param month
+     * @param dayOfMonth
+     * @param Calendar
+     */
     public void setDate(int year, int month, int dayOfMonth, int Calendar){
         this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
 
     /**
-     * setter gaji total
-     * @param
+     * setter gaji total dari subclass
      */
     public abstract void setTotalFee();
 
@@ -127,12 +138,16 @@ public abstract class Invoice {
         this.jobseeker = jobseeker;
     }
 
-
+    /**
+     * method setter status invoice
+     * @param invoiceStatus
+     */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus){
         this.invoiceStatus = invoiceStatus;
     }
+
     /**
-     * method printData
+     * method toString untuk mencetak data invoice
      */
     public abstract String toString(); /*{
         return "============ Invoice ============\n" +

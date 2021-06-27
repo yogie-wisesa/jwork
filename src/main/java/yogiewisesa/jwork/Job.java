@@ -1,9 +1,13 @@
+
 package yogiewisesa.jwork;
 /**
  * 
  *
  * @author (Yogie Wisesa)
  * @version (Modul2-18.03.2021)
+ * 
+ * class job
+ * untuk menghandle objek job
  */
 public class Job {
     /*
@@ -111,7 +115,7 @@ public class Job {
     }
     
     /**
-     * method printData
+     * method untuk mencetak data job
      */
     public String toString(){
         return "========== JOB ==========\n" +

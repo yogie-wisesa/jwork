@@ -1,3 +1,10 @@
+/**
+ * @author Yogie Wisesa
+ * @version 24/6/21
+ * 
+ * subclass ewallet payment
+ * untuk menghandle pembuatan objek invoice metode ewallet
+ */
 package yogiewisesa.jwork;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,30 +17,58 @@ public class EwalletPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
+    /**
+     * constructor object ewallet tanpa bonus
+     * @param id
+     * @param jobs
+     * @param jobseeker
+     */
     public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker){
         super(id, jobs, jobseeker);
         this.bonus = null;
     }
 
+    /**
+     * constructor object ewallet dengan bonus
+     * @param id
+     * @param jobs
+     * @param jobseeker
+     * @param bonus
+     */
     public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, Bonus bonus){
 
         super(id, jobs, jobseeker);
 
     }
 
+    /**
+     * method getter payment type 
+     * @return payment type
+     */
     public PaymentType getPaymentType(){
         return PAYMENT_TYPE;
     }
 
+    /**
+     * method getter bonus
+     * @return bonus
+     */
     public Bonus getBonus(){
         return bonus;
     }
 
+    /**
+     * method setter bonus 
+     * @param bonus
+     */
     public void setBonus(Bonus bonus){
         this.bonus = bonus;
 
     }
 
+    /**
+     * method setter total fee untuk menghitung gaji dengan bonus atau tidak
+     */
     public void setTotalFee(){
         super.totalFee = 0;
         for(Job j : getJobs())
@@ -45,7 +80,9 @@ public class EwalletPayment extends Invoice {
     }
 
 
-    
+    /**
+     * method toString untuk mencetak data invoice ewallet
+     */
     public String toString()
     {
         Calendar cal = new GregorianCalendar();

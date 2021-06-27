@@ -1,3 +1,10 @@
+/**
+ * @author Yogie Wisesa
+ * @version 24/6/21
+ * 
+ * class database jobseeker postgre
+ * untuk menyimpan data jobseeker ke database postgresql
+ */
 package yogiewisesa.jwork;
 
 import java.sql.Connection;
@@ -114,7 +121,6 @@ public class DatabaseJobseekerPostgre {
         String name = null;
         String email = null;
         String password = null;
-        Jobseeker Jobseeker = null;
         try {
             String sql = "SELECT * FROM Jobseeker WHERE id=?;";
             stmt = c.prepareStatement(sql);
@@ -138,7 +144,7 @@ public class DatabaseJobseekerPostgre {
 
     /**
      * Get Jobseeker
-     * @param email_cust Jobseeker emial
+     * @param email_cust Jobseeker email
      * @param password_cust Jobseeker password
      * @return Jobseeker
      */

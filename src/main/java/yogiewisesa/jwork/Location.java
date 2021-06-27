@@ -4,6 +4,9 @@ package yogiewisesa.jwork;
  *
  * @author (Yogie Wisesa)
  * @version (Modul2-18.03.2021)
+ * 
+ * class location
+ * untuk menghandle pembuatan objek lokasi recruiter
  */
 public class Location {
     /*
@@ -73,8 +76,7 @@ public class Location {
     }
     
     /**
-     * method untuk mencetak nama provinsi dari lokasi
-     * output berupa nama provinsi
+     * method untuk mencetak data lokasi
      */
     public String toString(){
         return              "Province: " + province +

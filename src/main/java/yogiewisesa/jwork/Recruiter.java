@@ -4,6 +4,9 @@ package yogiewisesa.jwork;
  *
  * @author (Yogie Wisesa)
  * @version (Modul2-18.03.2021)
+ * 
+ * class recrutier
+ * untuk menghandle pembuatan objek recruiter
  */
 public class Recruiter {
     /* 
@@ -112,8 +115,7 @@ public class Recruiter {
     }
 
     /**
-     * method untuk mencetak nama rekruter
-     * outputnya string nama dari rekruter
+     * method untuk data recrutier
      */
     public String toString(){
         return  "ID = " + id +
